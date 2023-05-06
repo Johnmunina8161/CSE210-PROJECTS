@@ -134,7 +134,10 @@ namespace DailyJournal
                         break;
                 }
             } Console.WriteLine();
-}   }   }  
+}   }   } 
+
+                            // Program diagram //
+
 /*
                             +-----------------+
                             |     Program     |
