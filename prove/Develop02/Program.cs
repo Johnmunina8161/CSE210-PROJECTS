@@ -95,14 +95,14 @@ namespace DailyJournal
                 "What is your last name? ",
                 "How was your day? ",
                 "how did you feel after prayer? ",
-                "What is your favorite color? "
+                "What is your favorite color? ",
             };
 
             bool quit = false;
             while (!quit)
             {
                 Console.WriteLine("\nDaily Journal Menu");
-                Console.WriteLine(" ");
+                Console.WriteLine("---");
                 Console.WriteLine("1. new entry");
                 Console.WriteLine("2. Display journal");
                 Console.WriteLine("3. Save the journal to a file");
