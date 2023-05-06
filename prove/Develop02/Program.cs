@@ -103,30 +103,30 @@ namespace DailyJournal
             {
                 Console.WriteLine("\nDaily Journal Menu");
                 Console.WriteLine("---");
-                Console.WriteLine("1. new entry");
-                Console.WriteLine("2. Display journal");
-                Console.WriteLine("3. Save the journal to a file");
-                Console.WriteLine("4. Load the journal from a file");
-                Console.WriteLine("5. Quit");
+                Console.WriteLine("A. new entry");
+                Console.WriteLine("B. Display journal");
+                Console.WriteLine("C. Save the journal to a file");
+                Console.WriteLine("D. Load the journal from a file");
+                Console.WriteLine("E. Quit");
 
                 Console.Write("\nEnter your choice (1-5): ");
                 string choice = Console.ReadLine();
 
                 switch (choice)
                 {
-                    case "1":
+                    case "A":
                         journal.AddEntry(prompts[new Random().Next(prompts.Count)]);
                         break;
-                    case "2":
+                    case "B":
                         journal.DisplayEntries();
                         break;
-                    case "3":
+                    case "C":
                         journal.SaveToFile();
                         break;
-                    case "4":
+                    case "D":
                         journal.LoadFromFile();
                         break;
-                    case "5":
+                    case "E":
                         quit = true;
                         break;
                     default:
