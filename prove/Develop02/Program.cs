@@ -136,7 +136,7 @@ namespace DailyJournal
             } Console.WriteLine();
 }   }   } 
 
-                            // Program diagram //
+                            // Program Diagram 
 
 /*
                             +-----------------+
