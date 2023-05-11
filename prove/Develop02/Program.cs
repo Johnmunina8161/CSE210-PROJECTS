@@ -1,7 +1,8 @@
-using DailyJournal;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
+using DailyJournal;
 class Program
     {
         static void Main(string[] args)
@@ -27,7 +28,7 @@ class Program
                 Console.WriteLine("B. Display journal");
                 Console.WriteLine("C. Save the journal to a file");
                 Console.WriteLine("D. Load the journal from a file");
-                Console.WriteLine("E. Close");
+                Console.WriteLine("E. Quit");
 
                 Console.Write("\nEnter your choice from (1-5): ");
                 string choice = Console.ReadLine();
