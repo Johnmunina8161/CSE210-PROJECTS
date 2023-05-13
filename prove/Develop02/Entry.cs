@@ -1,3 +1,4 @@
+
 using System;
 namespace DailyJournal
 {
@@ -14,7 +15,7 @@ namespace DailyJournal
             _date = date;
         }
 
-        public string GetPrompt()
+            public string GetPrompt()
         {
             return _prompt;
         }
@@ -33,5 +34,6 @@ namespace DailyJournal
         {
             return $"Date: {_date} - Prompt: {_prompt} \n{_response}\n";
         }
+
     }
 }
