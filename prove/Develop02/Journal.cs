@@ -7,7 +7,7 @@ namespace DailyJournal
 
         public Journal()
         {
-            entries = new List<Entry>();
+          List<Entry>_entries = new List<Entry>();
         }
 
         public void AddEntry(string prompt)
