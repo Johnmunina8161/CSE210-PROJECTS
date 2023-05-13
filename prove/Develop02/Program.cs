@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-using DailyJournal;
+namespace DailyJournal;
 class Program
     {
         static void Main(string[] args)
@@ -58,13 +58,13 @@ class Program
         } 
 
     }
-                            // Program Diagram 
+                            // Diagram  Program
 
   /*
                             +-----------------+
                             |     Program     |
                             +-----------------+
-                            |     Journal     |
+                            |   - journal     |
                             +-----------------+
                                     |
                                     |
@@ -85,8 +85,8 @@ class Program
             +---------+-----+ +-----+---------+ +------------+
             |   SaveToFile  | |  LoadFromFile | |  Display   |
             +---------------+ +---------------+ +------------+
-            | filename      | | filename      | | journal    |
+            | -filename     | | -filename     | | -journal   |
             |               | |               | |            |
-            | save()        | | +load()       | | display()  |
-            +---------------+ +---------------+ +------------+     */
+            | +save()       | | +load()       | | +display() |
+            +---------------+ +---------------+ +------------+     */    
 
