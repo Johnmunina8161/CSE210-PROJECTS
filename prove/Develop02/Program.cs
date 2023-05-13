@@ -58,7 +58,7 @@ class Program
         } 
 
     }
-                            // Diagram  Program
+                            // Diagram Program
 
   /*
                             +-----------------+
