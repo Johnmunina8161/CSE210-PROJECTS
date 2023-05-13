@@ -1,5 +1,4 @@
 using System;
-
 namespace DailyJournal
 {
     class Entry
