@@ -1,12 +1,12 @@
-
 using System;
+
 namespace DailyJournal
 {
     class Entry
     {
-        private string _prompt;
-        private string _response;
-        private string _date;
+        public string _prompt;
+        public string _response;
+        public string _date;
 
         public Entry(string prompt, string response, string date)
         {
@@ -15,7 +15,7 @@ namespace DailyJournal
             _date = date;
         }
 
-            public string GetPrompt()
+        public string GetPrompt()
         {
             return _prompt;
         }
@@ -34,6 +34,5 @@ namespace DailyJournal
         {
             return $"Date: {_date} - Prompt: {_prompt} \n{_response}\n";
         }
-
     }
 }
