@@ -25,9 +25,7 @@ namespace DailyJournal
                "Why should payment of tithes and offerings take priority over the payment of living expenses?",
                "How does the self-reliant approach to budgeting help you to become a better steward over your finances?",
                "What blessings have come to you as either a giver or receiver of generous fast offerings?",
-
-
-            };
+               };
 
             bool quit = false;
             while (!quit)
