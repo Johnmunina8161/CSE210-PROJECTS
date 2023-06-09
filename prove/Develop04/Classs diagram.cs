@@ -51,8 +51,43 @@
 
 
 
+*/ /*
+
+List<string>AnimationStrings = new List<string>();
+AnimationStrings.Add(" |");
+AnimationStrings.Add(" /");
+AnimationStrings.Add(" -");
+AnimationStrings.Add("\\ ");
+AnimationStrings.Add(" |");
+AnimationStrings.Add(" /");
+AnimationStrings.Add(" \\");
+
+//foreach (string s in AnimationStrings ) 
+//{
+//    Console.Write(s);
+//    Thread.Sleep(1000);
+//}   Console.Write("\b \b");
+
+DateTime startTime = DateTime.Now;
+DateTime endTime = startTime.AddSeconds(10);
+
+int i = 0;
+
+while (DateTime.Now > endTime)
+{
+    string s = AnimationStrings[i];
+    Console.Write(s);
+    Thread.Sleep(1000);
+    Console.Write("\b \b");
+
+    i++;
+
+    if (i >= AnimationStrings.Count)
+    {
+        i = 0;
+    }
+}
+Console.WriteLine("Done");
 */
-
-
 
 
