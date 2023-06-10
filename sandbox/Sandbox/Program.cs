@@ -1,93 +1,222 @@
-using System;
+/*using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Threading;
 
-/*class Program
+public abstract class Activity
 {
-    static void Main(string[] args)
+    protected string name;
+    protected string description;
+    protected int duration;
+
+    public Activity(string name, string description)
     {
-     person p1 = new person();
-        p1._firstName = "John";
-        p1._lastName = "Munina";
-        p1._age = 34;
+        this.name = name;
+        this.description = description;
+    }
 
-        person p2 = new person();
-        p2._firstName="Jacky";
-        p2._lastName ="Ngalula";
-        p2._age = 20;
+    public void Run()
+    {
+        DisplayStartingMessage();
+        Pause(3);
+        PerformActivity();
+        DisplayEndingMessage();
+    }
 
-        List<person> people = new List<person>();
-        people.Add(p1);
-        people.Add(p2);
-        
-        foreach (person p in people)
-        
+    protected void DisplayStartingMessage()
+    {
+        Console.WriteLine($"Activity: {name}");
+        Console.WriteLine(description);
+        Console.Write("Enter duration in seconds: ");
+        duration = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Prepare to begin...");
+    }
+
+    protected void DisplayEndingMessage()
+    {
+        Pause(2);
+        Console.WriteLine("Good job!");
+        Pause(2);
+        Console.WriteLine($"You have completed the {name} for {duration} seconds.");
+        Pause(2);
+    }
+
+    protected void Pause(int seconds)
+    {
+        for (int i = seconds; i > 0; i--)
         {
-            Console.WriteLine(p1._firstName);
+            Console.Clear();
+            Console.WriteLine("Please wait...");
+            Console.WriteLine(GetSpinner());
+            Thread.Sleep(1000);
+        }
+        Console.Clear();
+    }
+
+    private string GetSpinner()
+    {
+        string[] spinners = { "|", "/", "-", "\\" };
+        int index = DateTime.Now.Second % spinners.Length;
+        return spinners[index];
+    }
+
+    protected abstract void PerformActivity();
+}
+
+public class BreathingActivity : Activity
+{
+    public BreathingActivity() : base("Breathing Activity", "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.")
+    {
+    }
+
+    protected override void PerformActivity()
+    {
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(duration);
+
+        while (DateTime.Now < futureTime)
+        {
+            Console.WriteLine("Breathe in...");
+            Pause(2);
+            Console.WriteLine("Breathe out...");
+            Pause(2);
+        }
+    }
+}
+
+public class ReflectionActivity : Activity
+{
+    private List<string> prompts = new List<string>
+    {
+        "Think of a time when you stood up for someone else.",
+        "Think of a time when you did something really difficult.",
+        "Think of a time when you helped someone in need.",
+        "Think of a time when you did something truly selfless."
+    };
+
+    private List<string> questions = new List<string>
+    {
+        "Why was this experience meaningful to you?",
+        "Have you ever done anything like this before?",
+        "How did you get started?",
+        "How did you feel when it was complete?",
+        "What made this time different than other times when you were not as successful?",
+        "What is your favorite thing about this experience?",
+        "What could you learn from this experience that applies to other situations?",
+        "What did you learn about yourself through this experience?",
+        "How can you keep this experience in mind in the future?"
+    };
+
+    public ReflectionActivity() : base("Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
+    {
+    }
+
+    protected override void PerformActivity()
+    {
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(duration);
+
+        Random random = new Random();
+
+        while (DateTime.Now < futureTime)
+        {
+            string prompt = prompts[random.Next(prompts.Count)];
+            Console.WriteLine(prompt);
+            Pause(2);
+
+            foreach (string question in questions)
+            {
+                Console.WriteLine(question);
+                Console.WriteLine(GetSpinner());
+                Pause(3);
+            }
+        }
+    }
+}
+
+public class ListingActivity : Activity
+{
+    private List<string> prompts = new List<string>
+    {
+        "Who are people that you appreciate?",
+        "What are personal strengths of yours?",
+        "Who are people that you have helped this week?",
+        "When have you felt the Holy Ghost this month?",
+        "Who are some of your personal heroes?"
+    };
+
+    public ListingActivity() : base("Listing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
+    {
+    }
+
+    protected override void PerformActivity()
+    {
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(duration);
+
+        Random random = new Random();
+        string prompt = prompts[random.Next(prompts.Count)];
+
+        Console.WriteLine(prompt);
+        Console.WriteLine("You have a few seconds to think...");
+        Pause(3);
+
+        Console.WriteLine("Start listing items:");
+        List<string> items = new List<string>();
+
+        while (DateTime.Now < futureTime)
+        {
+            string item = Console.ReadLine();
+            items.Add(item);
         }
 
-        SaveToFile(people); 
-       //---------------------------------------------// 
-
- */
-/*
-        List<person> = newPeople = ReadFromFile();
-        
-        foreach (person p in newPeopl)
+        Console.WriteLine($"You listed {items.Count} items:");
+        foreach (string item in items)
         {
-            
-          Console.WriteLine(p._age_lastName); 
-
+            Console.WriteLine(item);
+        }
     }
-    public static void SaveToFile(List<person> people)
-    {
+}
 
-        Console.WriteLine("Saving to file...");
-        
-        string filename="people.txt";
-        
-        using (StreamWriter outputFile = new StreamWriter(filename))
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        bool exit = false;
+
+        while (!exit)
         {
-            foreach (person p in people)
+            Console.WriteLine("===== MENU =====");
+            Console.WriteLine("1. Breathing Activity");
+            Console.WriteLine("2. Reflection Activity");
+            Console.WriteLine("3. Listing Activity");
+            Console.WriteLine("4. Exit");
+            Console.Write("Enter your choice: ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+
+            switch (choice)
             {
-               outputFile.WriteLine(p._firstName);
+                case 1:
+                    BreathingActivity breathingActivity = new BreathingActivity();
+                    breathingActivity.Run();
+                    break;
+                case 2:
+                    ReflectionActivity reflectionActivity = new ReflectionActivity();
+                    reflectionActivity.Run();
+                    break;
+                case 3:
+                    ListingActivity listingActivity = new ListingActivity();
+                    listingActivity.Run();
+                    break;
+                case 4:
+                    exit = true;
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    break;
             }
 
-    // or   outputFile.WriteLine(${p._firstName}~~{p._lastName}~~{p._age});
-               
+            Console.WriteLine();
         }
     }
-    public static List<Peron>ReadFromFile()
-    {
-       Console.WriteLine("Reading this from file...");
-       List<person> people = new List<person>();
-       string filename = "people.txt";
-
-       string [] lines = System.IO.File.ReadAllLines(filename);
-
-       foreach (string line in lines)
-       {
-          // Console.WriteLine();
-          // line will have somthing like this : "Mary~~Smith~~25"
-          string [] parts = line.Split("~~");
-
-          // parts [0] = Mary
-          // parts [0] = Smith
-          // parts [0] = 25
-
-          
-          person  newPerson = new person();
-          newPerson._firstName = parts [0]; 
-          newPerson._lastName = parts [1]; 
-          newPerson._age = int.Parse(parts[2]);
-          
-          people.Add(newPerson);
-          
-        }
-
-       return people;
-    }
-}  
-   */ 
-
-    
+}*/
