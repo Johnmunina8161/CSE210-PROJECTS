@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace gamification 
 {
         
-    // Base class for all goals,  This class will be the base class for all other goals in the system.
+    // Base class for all goals, This class will be the base class for all other goals in the system.
     public abstract class Goal
     {
         public string _Description ; //field stores the description of the goal.
