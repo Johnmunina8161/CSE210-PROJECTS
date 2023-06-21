@@ -155,7 +155,7 @@ namespace gamification
         private static void LoadGoals()
         {
             // Load goals and totalScore from a file or database
-           Console.WriteLine("Goals and score loaded successfully.");
+           Console.WriteLine("goals and totalScore Loadged successfully.");
         }
     }
 }
