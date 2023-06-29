@@ -1,0 +1,12 @@
+/*
+I will be writting an open-ended project that will be about foods delivery designed to provide a menu system where users can choose activities such as placing an order, 
+tracking an order, or canceling an order. 
+Each activity is implemented as a separate class inheriting from a base class called DeliveryActivity, 
+which contains common attributes and behaviors. 
+The program follows the principles of encapsulation 
+and abstraction by using private member variables and organizing related items in separate classes. 
+It also incorporates pauses and animations to provide a more interactive experience for the user. 
+Overall, the program allows users to interact with a simplified food delivery system 
+and demonstrates object-oriented programming concepts in C#.
+
+*/

@@ -1,9 +1,9 @@
 namespace gamification 
 {
     // Eternal goal class
-    public class EternalGoal : Goal //  This means that it inherits all of the functionality of the Goal class, such as a description and a score.
+    public class EternalGoal : Goal // This means that it inherits all of the functionality of the Goal class, such as a description and a score.
     {
-        private int points; // This  field stores the number of points that are awarded each time the goal is completed.
+        private int points; // This field stores the number of points that are awarded each time the goal is completed.
 
         public EternalGoal(string description, int points) : base(description) // constructor initializes the goal with the given description and points.
         {
