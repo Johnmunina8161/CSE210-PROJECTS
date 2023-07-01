@@ -1,18 +1,55 @@
-namespace gamification 
+using System;
+namespace Goaltracker
 {
-    // Eternal goal class
-    public class EternalGoal : Goal // This means that it inherits all of the functionality of the Goal class, such as a description and a score.
+    public class EternalGoal : Goal
     {
-        private int points; // This field stores the number of points that are awarded each time the goal is completed.
+        // Attributes
+        private string _type = "Eternal Goal:";
+        private bool _status;
 
-        public EternalGoal(string description, int points) : base(description) // constructor initializes the goal with the given description and points.
+        // Constructors
+        public EternalGoal(string type, string name, string description, int points) : base(type, name, description, points)
         {
-            this.points = points;
+            _status = false;
         }
 
-        public override void Complete() // This method is used to complete the goal. When the goal is completed, the score field is incremented by the points value.
+        public EternalGoal(string type, string name, string description, int points, bool status) : base(type, name, description, points)
         {
-            _Score += points;
+            _status = status;
+        }
+
+        // Methods
+        public bool Finished()
+        {
+            return _status;
+        }
+
+        public override void ListGoal(int i)
+        {
+            if (!Finished())
+            {
+                Console.WriteLine($"{i}. [ ] {GetName()} ({GetDescription()})");
+            }
+            else
+            {
+                Console.WriteLine($"{i}. [X] {GetName()} ({GetDescription()})");
+            }
+        }
+
+        public override string SaveGoal()
+        {
+            return $"{_type}; {GetName()}; {GetDescription()}; {GetPoints()}; {_status}";
+        }
+
+        public override string LoadGoal()
+        {
+            return $"Eternal Goal:; {GetName()}; {GetDescription()}; {GetPoints()}; {_status}";
+        }
+
+        public override void RecordGoalEvent(List<Goal> goals)
+        {
+            _status = true;
+            Console.WriteLine($"Congratulations! You have earned {GetPoints()} points for completing the goal: {GetName()}");
         }
     }
 }
