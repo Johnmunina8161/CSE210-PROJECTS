@@ -22,13 +22,13 @@ namespace Abstraction
             video3.AddComment("User H", "Please upload more videos on this subject.");
 
             // Create a list of videos
-            List<Video> videos = new List<Video>();
+            List<Video> videos = new List<Video>(); // This  List<Video> named videos is created to store the created video objects.
             videos.Add(video1);
             videos.Add(video2);
             videos.Add(video3);
 
             // Display video information
-            foreach (Video video in videos)
+            foreach (Video video in videos) //  iterate over each video in the videos list.
             {
                 Console.WriteLine("Title: " + video.Title);
                 Console.WriteLine("Author: " + video.Author);
